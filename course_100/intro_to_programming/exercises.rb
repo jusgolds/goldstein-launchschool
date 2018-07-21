@@ -102,3 +102,44 @@ puts ""
 
 puts "Joe's email is #{contacts["Joe Smith"][:email]}"
 puts "Sally's phone number is #{contacts["Sally Johnson"][:phone]}"
+
+#14
+puts ""
+puts "(14)"
+puts ""
+
+contact_data = ["joe@email.com", "123 Main St", "555-123-4567"]
+contacts = {"Joe Smith" => {}}
+fields =[:email, :address, :phone]
+
+contacts.each do |key,hash|
+  fields.each do |field|
+    hash[field] = contact_data.shift
+  end
+end
+p contacts
+
+#15
+puts ""
+puts "(15)"
+puts ""
+
+arr = ['snow', 'winter', 'ice', 'slippery', 'salted roads', 'white trees']
+
+arr.delete_if { |a| a.start_with?("s", "w") }
+p arr
+
+#16
+puts ""
+puts "(16)"
+puts ""
+
+a = ['white snow', 'winter wonderland', 'melting ice',
+     'slippery sidewalk', 'salted roads', 'white trees']
+
+#iterate through each and split words
+
+a = a.map { |pairs| pairs.split }
+a = a.flatten
+
+p a
