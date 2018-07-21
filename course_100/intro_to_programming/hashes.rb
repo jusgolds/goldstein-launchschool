@@ -46,9 +46,3 @@ if spurs.has_value?(20)
 else
   puts "nope"
 end
-
-#6
-
-#7
-
-#8
