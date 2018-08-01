@@ -7,3 +7,6 @@ test.rb
 #videos
 /videos/
 .mp4
+
+#yml
+.yml
