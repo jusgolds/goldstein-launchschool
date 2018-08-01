@@ -8,5 +8,5 @@ test.rb
 /videos/
 .mp4
 
-#yml
-.yml
+#rubocop yml
+.rubocop.yml
