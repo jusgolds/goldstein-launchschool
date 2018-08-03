@@ -1,14 +1,8 @@
-#define a method digit_list
-#create an array arr, to store the digits
-#create a for loop that looks at each digit
-#push each number into arr
+# ask for an integer
+# create a for loop that takes each digit and adds it to an array
 
 def digit_list(num)
-  arr = []
-  num.each do |digit|
-    arr.push(digit)
-  end
-  p arr
+  num.to_s.chars.map(&:to_i)
 end
 
 puts digit_list(12345) == [1, 2, 3, 4, 5]     # => true
