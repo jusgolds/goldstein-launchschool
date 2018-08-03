@@ -6,6 +6,10 @@ def valid_number?(num)
   num.to_i.to_s == num
 end
 
+def number?(num)
+  num.to_f.to_s == num
+end
+
 def operation_to_message(op)
   case op
   when '1'
@@ -42,6 +46,8 @@ loop do # main loop
 
     if valid_number?(number1)
       break
+    elsif number?(number1)
+      break
     else
       prompt("Hmm.. that doesn't look like a valid number")
     end
@@ -53,6 +59,8 @@ loop do # main loop
     number2 = Kernel.gets().chomp()
 
     if valid_number?(number2)
+      break
+    elsif number?(number2)
       break
     else
       prompt("Hmm.. that doesn't look like a valid number")
@@ -84,11 +92,11 @@ loop do # main loop
 
   result = case operator
            when '1'
-             number1.to_i() + number2.to_i()
+             number1.to_f() + number2.to_f()
            when '2'
-             number1.to_i() - number2.to_i()
+             number1.to_f() - number2.to_f()
            when '3'
-             number1.to_i() * number2.to_i()
+             number1.to_f() * number2.to_f()
            when '4'
              number1.to_f() / number2.to_f()
            end
