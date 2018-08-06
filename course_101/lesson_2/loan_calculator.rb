@@ -97,9 +97,10 @@ end
 
 loan_total = loan_total.to_i
 loan_months = loan_years.to_i * 12
-monthly_interest = apr.to_f / 12
+monthly_interest = (apr.to_f / 100) / 12
 
 monthly_payment = loan_total * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_months)))
+monthly_payment = monthly_payment.round(2)
 
 prompt("Loan Total = $#{loan_total}")
 prompt("APR = #{apr}%")
