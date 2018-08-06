@@ -95,15 +95,17 @@ loop do
   end
 end
 
-loan_total = loan_total.to_i
+loan_total = loan_total.to_f
 loan_months = loan_years.to_i * 12
 monthly_interest = (apr.to_f / 100) / 12
 
 monthly_payment = loan_total * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_months)))
 monthly_payment = monthly_payment.round(2)
 
-prompt("Loan Total = $#{loan_total}")
+prompt("---------------------------------------")
+prompt("Justin, below is your loan's information:")
+prompt("Loan Total = $#{loan_total.round(2)}")
 prompt("APR = #{apr}%")
-prompt("Monthly Interest = #{monthly_interest}%")
+prompt("Monthly Interest = #{monthly_interest.round(4)}%")
 prompt("Loan Length = #{loan_months} months")
 prompt("Monthly Payment = $#{monthly_payment}")
