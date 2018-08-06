@@ -95,11 +95,14 @@ loop do
   end
 end
 
+loan_total = loan_total.to_i
 loan_months = loan_years.to_i * 12
-
 monthly_interest = apr.to_f / 12
+
+monthly_payment = loan_total * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_months)))
 
 prompt("Loan Total = $#{loan_total}")
 prompt("APR = #{apr}%")
 prompt("Monthly Interest = #{monthly_interest}%")
 prompt("Loan Length = #{loan_months} months")
+prompt("Monthly Payment = $#{monthly_payment}")
