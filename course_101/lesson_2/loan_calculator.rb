@@ -29,14 +29,6 @@ def prompt(message)
   puts("=> #{message}")
 end
 
-def valid_number?(num)
-  num.to_i.to_s == num
-end
-
-def number?(num)
-  num.to_f.to_s == num
-end
-
 prompt("Welcome to the loan calculator. Please enter your name:")
 
 name = ''
@@ -52,60 +44,60 @@ end
 
 prompt("Welcome #{name}! Let's calculate your monthly payment!")
 
-loan_total = ''
 loop do
-  prompt("What is the total dollar value of the loan?")
-  loan_total = gets.chomp
+  loan_total = ''
+  loop do
+    prompt("What is the total dollar value of the loan?")
+    loan_total = gets.chomp
 
-  if valid_number?(loan_total)
-    break
-  elsif number?(loan_total)
-    break
-  else
-    prompt("That is not a valid number...")
+    if loan_total.empty?() || loan_total.to_f < 0
+      prompt("That is not a valid number...")
+    else
+      break
+    end
   end
+
+  apr = ''
+  loop do # validity check needs further testing
+    prompt("What is the APR %? (Please enter without %)")
+    prompt("Example: 3.25% = 3.25")
+    apr = gets.chomp
+
+    if apr.empty?() || apr.to_f < 0
+      prompt("That is not a valid number...")
+    else
+      break
+    end
+  end
+
+  loan_years = ''
+  loop do
+    prompt("What is the loan length in years?")
+    loan_years = gets.chomp
+
+    if loan_years.empty?() || loan_years.to_i < 0
+      prompt("That is not a valid number...")
+    else
+      break
+    end
+  end
+
+  loan_total = loan_total.to_f
+  loan_months = loan_years.to_i * 12
+  monthly_interest = (apr.to_f / 100) / 12
+
+  monthly_payment = loan_total * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_months)))
+
+  prompt("---------------------------------------")
+  prompt("Justin, your monthly payment is:")
+  prompt("$#{format('%02.2f', monthly_payment)}")
+  prompt("---------------------------------------")
+
+  prompt("Would you like to find another monthly rate? (Y for Yes)")
+  answer = gets.chomp
+
+  break unless answer.downcase == 'y'
 end
 
-apr = ''
-loop do # validity check needs further testing
-  prompt("What is the APR %? (Please enter without %)")
-  prompt("Example: 3.25% = 3.25")
-  apr = gets.chomp
-
-  if valid_number?(apr)
-    break
-  elsif number?(apr)
-    break
-  else
-    prompt("That is not a valid number...")
-  end
-end
-
-loan_years = ''
-loop do
-  prompt("What is the loan length in years?")
-  loan_years = gets.chomp
-
-  if valid_number?(loan_years)
-    break
-  elsif number?(loan_years)
-    break
-  else
-    prompt("That is not a valid number...")
-  end
-end
-
-loan_total = loan_total.to_f
-loan_months = loan_years.to_i * 12
-monthly_interest = (apr.to_f / 100) / 12
-
-monthly_payment = loan_total * (monthly_interest / (1 - (1 + monthly_interest)**(-loan_months)))
-monthly_payment = monthly_payment.round(2)
-
-prompt("---------------------------------------")
-prompt("Justin, below is your loan's information:")
-prompt("Loan Total = $#{loan_total.round(2)}")
-prompt("APR = #{apr}%")
-prompt("Monthly Interest = #{monthly_interest.round(4)}%")
-prompt("Loan Length = #{loan_months} months")
-prompt("Monthly Payment = $#{monthly_payment}")
+prompt("Thank you for using the calculator!")
+prompt("Good bye, #{name}!")
