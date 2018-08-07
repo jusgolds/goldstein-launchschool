@@ -11,7 +11,14 @@
 
 
 def reverse_words(string)
-  string.reverse
+  words = []
+  words = string.split
+  for word in words
+    if word.size >= 5
+      word.reverse!
+    end
+  end
+  words.join(" ")
 end
 
 puts reverse_words('Professional')          # => lanoisseforP
