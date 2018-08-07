@@ -12,8 +12,21 @@
 # print the string
 
 def stringy(num)
-end
+  str_len = num.to_i
+  counter = 2
+  binary = '1'
 
+
+  while counter <= str_len
+    if counter.odd?
+      binary << '1'
+    else
+      binary << '0'
+    end
+    counter += 1
+  end
+  binary
+end
 
 puts stringy(6) == '101010'
 puts stringy(9) == '101010101'
