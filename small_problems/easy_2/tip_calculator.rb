@@ -21,5 +21,5 @@ tip_rate = gets.chomp.to_f
 tip_total = (bill_pre * (tip_rate/100)).round(2)
 bill_total = (tip_total + bill_pre).round(2)
 
-puts "The tip is $#{tip_total}"
-puts "The total is $#{bill_total}"
+puts "The tip is $#{"%.2f" % tip_total}"
+puts "The total is $#{"%.2f" % bill_total}"
