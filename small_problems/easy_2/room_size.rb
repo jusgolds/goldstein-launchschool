@@ -22,12 +22,12 @@ area_meter = nil
 area_feet = nil
 
 puts "Enter the length of the room in meters:"
-length_meter = gets.chomp.to_i
+length_meter = gets.chomp.to_f
 
 puts "Enter the width of the room in meters:"
-width_meter = gets.chomp.to_i
+width_meter = gets.chomp.to_f
 
-area_meter = length_meter * width_meter
+area_meter = (length_meter * width_meter).round(2)
 area_feet = (area_meter * 10.7639).round(2)
 
 
