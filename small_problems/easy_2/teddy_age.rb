@@ -7,4 +7,11 @@
 
 age = rand(20..200)
 
-puts "Teddy is #{age} today!"
+puts "What is your name?"
+name = gets.chomp
+
+if name.empty?()
+  name = "Teddy"
+end
+
+puts "#{name} is #{age} today!"
