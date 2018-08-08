@@ -15,3 +15,20 @@
 # multiply length and width and add to area(meter)
 # convert area(meter) to feet and add to area(feet)
 # print both the area in meters and feet
+
+length_meter = nil
+width_meter = nil
+area_meter = nil
+area_feet = nil
+
+puts "Enter the length of the room in meters:"
+length_meter = gets.chomp.to_i
+
+puts "Enter the width of the room in meters:"
+width_meter = gets.chomp.to_i
+
+area_meter = length_meter * width_meter
+area_feet = (area_meter * 10.7639).round(2)
+
+
+puts "The area of the room is #{area_meter} square meters (#{area_feet} square feet)."
