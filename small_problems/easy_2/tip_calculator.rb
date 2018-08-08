@@ -12,3 +12,14 @@
 # ask for a tip percentage and save it in a tip percent variable
 # calculate the tip and display it
 # add the tip to the pre-tip total and display that total
+
+print "What is the bill? "
+bill_pre = gets.chomp.to_f
+print "What is the tip percentage? "
+tip_rate = gets.chomp.to_f
+
+tip_total = (bill_pre * (tip_rate/100)).round(2)
+bill_total = (tip_total + bill_pre).round(2)
+
+puts "The tip is $#{tip_total}"
+puts "The total is $#{bill_total}"
