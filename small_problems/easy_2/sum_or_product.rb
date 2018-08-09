@@ -17,7 +17,8 @@
 # same while with multiplication
 
 counter = 1
-total = 0
+total_s = 0
+total_m = 1
 
 puts "Please enter an integer greater than 0:"
 num_choice = gets.chomp.to_i
@@ -25,10 +26,16 @@ num_choice = gets.chomp.to_i
 puts "Enter 's' to compute the sum, 'p' to compute the product."
 choice = gets.chomp
 
-while counter <= num_choice
-  if choice == 's'
-    total += counter
+if choice == 's'
+  while counter <= num_choice
+    total_s += counter
     counter += 1
   end
+  puts total_s
+elsif choice == 'p'
+  while counter <= num_choice
+    total_m *= counter
+    counter += 1
+  end
+  puts total_m
 end
-puts total
