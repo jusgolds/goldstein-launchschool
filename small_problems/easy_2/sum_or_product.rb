@@ -11,7 +11,24 @@
 # ask the user to enter an integer greater than 0, store in variable
 # ask user to either compute sum, or product
 # if s
-# while loop where sum += 1 until counter = variable
+# while loop where sum += counter until counter = variable
 # counter += 1
 # if p
 # same while with multiplication
+
+counter = 1
+total = 0
+
+puts "Please enter an integer greater than 0:"
+num_choice = gets.chomp.to_i
+
+puts "Enter 's' to compute the sum, 'p' to compute the product."
+choice = gets.chomp
+
+while counter <= num_choice
+  if choice == 's'
+    total += counter
+    counter += 1
+  end
+end
+puts total
