@@ -10,4 +10,14 @@
 # ask the user for their name and store that in a name variable
 # run if loop
 # if there is a ! at the end, print uppercase statement
+# remove the ! from the end of the name before printing
 # else, just print hello name
+
+print "What is your name? "
+name = gets.chomp
+
+if name.end_with? "!"
+  puts "HELLO #{name.upcase.chomp("!")}. WHY ARE WE SCREAMING?"
+else
+  puts "Hello #{name}."
+end
