@@ -6,3 +6,8 @@
 # => Hello Bob.
 # => What is your name? Bob!
 # => HELLO BOB. WHY ARE WE SCREAMING?
+
+# ask the user for their name and store that in a name variable
+# run if loop
+# if there is a ! at the end, print uppercase statement
+# else, just print hello name
