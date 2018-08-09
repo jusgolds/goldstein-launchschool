@@ -7,3 +7,12 @@
 # puts counter
 # if even, skip
 # counter += 1
+
+counter = 1
+
+while counter < 100
+  if counter.odd?
+    puts counter
+  end
+  counter += 1
+end
