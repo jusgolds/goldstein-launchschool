@@ -31,11 +31,11 @@ if choice == 's'
     total_s += counter
     counter += 1
   end
-  puts total_s
+  puts "The sum of the integers between 1 and #{num_choice} is #{total_s}."
 elsif choice == 'p'
   while counter <= num_choice
     total_m *= counter
     counter += 1
   end
-  puts total_m
+  puts "The product of the integers between 1 and #{num_choice} is #{total_m}."
 end
