@@ -18,8 +18,15 @@ end
 
 def win?(first, second)
   (first == 'rock' && second == 'scissors') ||
+    (first == 'rock' && second == 'lizard') ||
     (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper')
+    (first == 'paper' && second == 'spock') ||
+    (first == 'scissors' && second == 'paper') ||
+    (first == 'scissors' && second == 'lizard') ||
+    (first == 'spock' && second == 'scissors') ||
+    (first == 'spock' && second == 'rock') ||
+    (first == 'lizard' && second == 'spock') ||
+    (first == 'lizard' && second == 'paper')
 end
 
 def display_result(player, computer)
