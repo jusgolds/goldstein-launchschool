@@ -10,6 +10,8 @@
 # Add spock and lizard to the valid choices
 # Update code to add new scenarios in the same way as is already
 
+# Update user selection so they only have to type 1/2 letter for their choice
+
 VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 def prompt(message)
