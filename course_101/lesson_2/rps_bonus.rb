@@ -7,6 +7,7 @@
 # Spock beats scissors and rock
 # Lizard beats Spock and paper
 
+# Add spock and lizard to the valid choices
 # Update code to add new scenarios in the same way as is already
 
 VALID_CHOICES = ['rock', 'paper', 'scissors']
