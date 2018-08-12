@@ -1,5 +1,14 @@
 # => Rock, paper, scissors code with added bonus features
 
+# => Add Spock and Lizard to the game
+# Rock beats Scissors and Lizard
+# Paper beats rock and Spock
+# Scissors beats paper and lizard
+# Spock beats scissors and rock
+# Lizard beats Spock and paper
+
+# Update code to add new scenarios in the same way as is already
+
 VALID_CHOICES = ['rock', 'paper', 'scissors']
 
 def prompt(message)
