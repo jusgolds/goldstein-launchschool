@@ -10,7 +10,7 @@
 # Add spock and lizard to the valid choices
 # Update code to add new scenarios in the same way as is already
 
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 def prompt(message)
   Kernel.puts("=> #{message}")
