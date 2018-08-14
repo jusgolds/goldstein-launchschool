@@ -1,10 +1,3 @@
-# => Determine overall winner if someone gets 5
-# remove play again prompt
-# add if statement for overall_winner() = true
-# method checks to see if either of the players have 5
-# if so returns true
-# true breaks loop
-
 
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
