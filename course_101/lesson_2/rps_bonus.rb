@@ -9,26 +9,41 @@
 
 # Add spock and lizard to the valid choices
 # Update code to add new scenarios in the same way as is already
+# in order to simplify code, need to change win? and valid_choices
+
+# change valid_choices to hash winning_combinations
+# => key will be choice, and then include what it beats
+# update win? so it sees if winning_combination{key} includes choice
+# key is going to be the first selection
+# choice is the second selection
+# update the choices in the loop to reflect winning_combinations
 
 # Update user selection so they only have to type 1/2 letter for their choice
 
 VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+
+WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
+                         'paper' => ['rock', 'spock'],
+                         'scissors' => ['paper', 'lizard'],
+                         'spock' => ['scissors', 'rock'],
+                         'lizard' => ['spock', 'paper'] }
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'rock' && second == 'lizard') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'paper' && second == 'spock') ||
-    (first == 'scissors' && second == 'paper') ||
-    (first == 'scissors' && second == 'lizard') ||
-    (first == 'spock' && second == 'scissors') ||
-    (first == 'spock' && second == 'rock') ||
-    (first == 'lizard' && second == 'spock') ||
-    (first == 'lizard' && second == 'paper')
+  WINNING_COMBINATIONS[first].include?(second)
+  # (first == 'rock' && second == 'scissors') ||
+  #  (first == 'rock' && second == 'lizard') ||
+  #  (first == 'paper' && second == 'rock') ||
+  #  (first == 'paper' && second == 'spock') ||
+  #  (first == 'scissors' && second == 'paper') ||
+  #  (first == 'scissors' && second == 'lizard') ||
+  #  (first == 'spock' && second == 'scissors') ||
+  #  (first == 'spock' && second == 'rock') ||
+  #  (first == 'lizard' && second == 'spock') ||
+  #  (first == 'lizard' && second == 'paper')
 end
 
 def display_result(player, computer)
@@ -44,17 +59,17 @@ end
 loop do
   choice = ''
   loop do
-    prompt("Pick one: #{VALID_CHOICES.join(', ')}")
+    prompt("Pick one: #{WINNING_COMBINATIONS.keys.join(', ')}")
     choice = Kernel.gets().chomp()
 
-    if VALID_CHOICES.include?(choice)
+    if WINNING_COMBINATIONS.keys.include?(choice)
       break
     else
       prompt("That is not a valid choice.")
     end
   end
 
-  computer_choice = VALID_CHOICES.sample
+  computer_choice = WINNING_COMBINATIONS.keys.sample
 
   prompt("You chose #{choice}; Computer chose #{computer_choice}")
 
