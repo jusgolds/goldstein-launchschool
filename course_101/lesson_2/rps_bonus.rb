@@ -1,26 +1,3 @@
-# => Rock, paper, scissors code with added bonus features
-
-# => Add Spock and Lizard to the game
-# Rock beats Scissors and Lizard
-# Paper beats rock and Spock
-# Scissors beats paper and lizard
-# Spock beats scissors and rock
-# Lizard beats Spock and paper
-
-# Add spock and lizard to the valid choices
-# Update code to add new scenarios in the same way as is already
-# in order to simplify code, need to change win? and valid_choices
-
-# change valid_choices to hash winning_combinations
-# => key will be choice, and then include what it beats
-# update win? so it sees if winning_combination{key} includes choice
-# key is going to be the first selection
-# choice is the second selection
-# update the choices in the loop to reflect winning_combinations
-
-# Update user selection so they only have to type 1/2 letter for their choice
-# Create choices method
-# case method where if they type a specific option converts to the whole value
 
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
