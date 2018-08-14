@@ -60,41 +60,47 @@ def display_overall(score)
   end
 end
 
-score = { 'Player' => 0, 'Computer' => 0 }
-
 loop do
-  choice = ''
+  score = { 'Player' => 0, 'Computer' => 0 }
+
   loop do
-    prompt("Pick one: #{WINNING_COMBINATIONS.keys.join(', ')}")
-    prompt("Pick (r) rock, (p) paper, (sc) scissors")
-    prompt("     (sp) spock, or (l) lizard")
-    choice = make_choice(Kernel.gets().chomp())
+    choice = ''
+    loop do
+      prompt("Pick one: #{WINNING_COMBINATIONS.keys.join(', ')}")
+      prompt("Pick (r) rock, (p) paper, (sc) scissors")
+      prompt("     (sp) spock, or (l) lizard")
+      choice = make_choice(Kernel.gets().chomp())
 
-    if WINNING_COMBINATIONS.keys.include?(choice)
-      break
-    else
-      prompt("That is not a valid choice.")
+      if WINNING_COMBINATIONS.keys.include?(choice)
+        break
+      else
+        prompt("That is not a valid choice.")
+      end
     end
+
+    computer_choice = WINNING_COMBINATIONS.keys.sample
+
+    prompt("You chose #{choice}; Computer chose #{computer_choice}")
+
+    winner = determine_winner(choice, computer_choice)
+
+    if winner
+      display_winner(winner)
+      update_score(score, winner)
+    else
+      prompt("It's a tie")
+    end
+
+    display_score(score)
+
+    break if overall_winner?(score)
   end
 
-  computer_choice = WINNING_COMBINATIONS.keys.sample
+  display_overall(score)
 
-  prompt("You chose #{choice}; Computer chose #{computer_choice}")
-
-  winner = determine_winner(choice, computer_choice)
-
-  if winner
-    display_winner(winner)
-    update_score(score, winner)
-  else
-    prompt("It's a tie")
-  end
-
-  display_score(score)
-
-  break if overall_winner?(score)
+  prompt("Do you want to play again?")
+  answer = gets().chomp()
+  break unless answer.downcase().start_with?('y')
 end
-
-display_overall(score)
 
 prompt("Thank you for playing. Good bye!")
