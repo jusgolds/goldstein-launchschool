@@ -1,15 +1,3 @@
-# => Keeping score
-# => set the score as 0:0
-# this should be a hash with key(player/computer) hash(0)
-# => determine if someone won or tied
-# after display of chocies winner = determine winner method
-# determine winner is display result without prompts
-# if statment so if winner display it
-# create display_winner method
-# takes winner and prompts
-# => tell the user the outcome
-# => if someone won, update their score
-# => display their score
 
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
