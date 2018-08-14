@@ -44,13 +44,23 @@ def determine_winner(player, computer)
   if win?(player, computer)
     'Player'
   elsif win?(computer, player)
-    'Compter'
+    'Computer'
   end
 end
 
 def display_winner(winner)
   prompt("#{winner} won!")
 end
+
+def update_score(score, winner)
+  score[winner] += 1
+end
+
+def display_score(score)
+  prompt("Player: #{score['Player']} | Computer: #{score['Computer']}")
+end
+
+score = { 'Player' => 0, 'Computer' => 0 }
 
 loop do
   choice = ''
@@ -75,9 +85,12 @@ loop do
 
   if winner
     display_winner(winner)
+    update_score(score, winner)
   else
     prompt("It's a tie")
   end
+
+  display_score(score)
 
   prompt("Do you want to play again?")
   answer = gets().chomp()
