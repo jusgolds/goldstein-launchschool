@@ -1,3 +1,16 @@
+# => Keeping score
+# => set the score as 0:0
+# this should be a hash with key(player/computer) hash(0)
+# => determine if someone won or tied
+# after display of chocies winner = determine winner method
+# determine winner is display result without prompts
+# if statment so if winner display it
+# create display_winner method
+# takes winner and prompts
+# => tell the user the outcome
+# => if someone won, update their score
+# => display their score
+
 
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
@@ -28,14 +41,16 @@ def win?(first, second)
   WINNING_COMBINATIONS[first].include?(second)
 end
 
-def display_result(player, computer)
+def determine_winner(player, computer)
   if win?(player, computer)
-    prompt("You won!")
+    'Player'
   elsif win?(computer, player)
-    prompt("The computer won!")
-  else
-    prompt("It's a tie!")
+    'Compter'
   end
+end
+
+def display_winner(winner)
+  prompt("#{winner} won!")
 end
 
 loop do
@@ -57,7 +72,13 @@ loop do
 
   prompt("You chose #{choice}; Computer chose #{computer_choice}")
 
-  display_result(choice, computer_choice)
+  winner = determine_winner(choice, computer_choice)
+
+  if winner
+    display_winner(winner)
+  else
+    prompt("It's a tie")
+  end
 
   prompt("Do you want to play again?")
   answer = gets().chomp()
