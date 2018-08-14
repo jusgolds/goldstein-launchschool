@@ -11,7 +11,6 @@
 # => if someone won, update their score
 # => display their score
 
-
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
                          'scissors' => ['paper', 'lizard'],
