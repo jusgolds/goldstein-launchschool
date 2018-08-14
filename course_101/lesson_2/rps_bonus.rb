@@ -19,6 +19,8 @@
 # update the choices in the loop to reflect winning_combinations
 
 # Update user selection so they only have to type 1/2 letter for their choice
+# Create choices method
+# case method where if they type a specific option converts to the whole value
 
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
@@ -28,6 +30,21 @@ WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
 
 def prompt(message)
   Kernel.puts("=> #{message}")
+end
+
+def make_choice(user_choice)
+  case user_choice
+  when 'r'
+    'rock'
+  when 'p'
+    'paper'
+  when 'sc'
+    'scissors'
+  when 'sp'
+    'spock'
+  when 'l'
+    'lizard'
+  end
 end
 
 def win?(first, second)
@@ -48,7 +65,9 @@ loop do
   choice = ''
   loop do
     prompt("Pick one: #{WINNING_COMBINATIONS.keys.join(', ')}")
-    choice = Kernel.gets().chomp()
+    prompt("Pick (r) rock, (p) paper, (sc) scissors")
+    prompt("     (sp) spock, or (l) lizard")
+    choice = make_choice(Kernel.gets().chomp())
 
     if WINNING_COMBINATIONS.keys.include?(choice)
       break
