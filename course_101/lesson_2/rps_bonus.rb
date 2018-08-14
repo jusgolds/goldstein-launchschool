@@ -20,8 +20,6 @@
 
 # Update user selection so they only have to type 1/2 letter for their choice
 
-VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
-
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
                          'scissors' => ['paper', 'lizard'],
@@ -34,16 +32,6 @@ end
 
 def win?(first, second)
   WINNING_COMBINATIONS[first].include?(second)
-  # (first == 'rock' && second == 'scissors') ||
-  #  (first == 'rock' && second == 'lizard') ||
-  #  (first == 'paper' && second == 'rock') ||
-  #  (first == 'paper' && second == 'spock') ||
-  #  (first == 'scissors' && second == 'paper') ||
-  #  (first == 'scissors' && second == 'lizard') ||
-  #  (first == 'spock' && second == 'scissors') ||
-  #  (first == 'spock' && second == 'rock') ||
-  #  (first == 'lizard' && second == 'spock') ||
-  #  (first == 'lizard' && second == 'paper')
 end
 
 def display_result(player, computer)
