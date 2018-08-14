@@ -1,3 +1,10 @@
+# => Determine overall winner if someone gets 5
+# remove play again prompt
+# add if statement for overall_winner() = true
+# method checks to see if either of the players have 5
+# if so returns true
+# true breaks loop
+
 
 WINNING_COMBINATIONS = { 'rock' => ['scissors', 'lizard'],
                          'paper' => ['rock', 'spock'],
@@ -48,6 +55,18 @@ def display_score(score)
   prompt("Player: #{score['Player']} | Computer: #{score['Computer']}")
 end
 
+def overall_winner?(score)
+  score['Player'] == 5 || score['Computer'] == 5
+end
+
+def display_overall(score)
+  if score['Player'] == 5
+    prompt("Player wins!")
+  elsif score['Computer'] == 5
+    prompt("Computer wins!")
+  end
+end
+
 score = { 'Player' => 0, 'Computer' => 0 }
 
 loop do
@@ -80,9 +99,9 @@ loop do
 
   display_score(score)
 
-  prompt("Do you want to play again?")
-  answer = gets().chomp()
-  break unless answer.downcase().start_with?("y")
+  break if overall_winner?(score)
 end
+
+display_overall(score)
 
 prompt("Thank you for playing. Good bye!")
