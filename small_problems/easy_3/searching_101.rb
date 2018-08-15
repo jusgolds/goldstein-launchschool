@@ -2,30 +2,34 @@
 # => then prints a message that describes whether or not
 # => the 6th number appears amongst the first 5 numbers.
 
-# second iteration
-# break loop after 5 numbers
-# ask user for another number
-# before adding number to arr, see if arr.include?(number)
-# if yes, say so
-# if no, say so
-
 count = 1
 num = ''
 arr = []
 
-def prompt(message)
-  puts "==> #{message}"
+def prompt(count)
+  case count
+  when 1
+    puts "==> Enter the 1st number:"
+  when 2
+    puts "==> Enter the 2nd number:"
+  when 3
+    puts "==> Enter the 3rd number:"
+  when 4
+    puts "==> Enter the 4th number:"
+  when 5
+    puts "==> Enter the 5th number:"
+  end
 end
 
 loop do
-  prompt("Enter a number:")
+  prompt(count)
   num = gets.chomp.to_i
   arr.push(num)
   count += 1
   break if count > 5
 end
 
-prompt("Enter a number:")
+puts "==> Enter the last number:"
 num = gets.chomp.to_i
 
 if arr.include?(num)
