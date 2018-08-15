@@ -2,14 +2,12 @@
 # => then prints a message that describes whether or not
 # => the 6th number appears amongst the first 5 numbers.
 
-# first iteration
-# create a count variable
-# create method to prompt user to add a number
-# start loop
-# when user types number, change the string to in
-# add this int to an arr
-# add 1 to count
-# after 6, put the array
+# second iteration
+# break loop after 5 numbers
+# ask user for another number
+# before adding number to arr, see if arr.include?(number)
+# if yes, say so
+# if no, say so
 
 count = 1
 num = ''
@@ -24,7 +22,14 @@ loop do
   num = gets.chomp.to_i
   arr.push(num)
   count += 1
-  break if count > 6
+  break if count > 5
 end
 
-p arr
+prompt("Enter a number:")
+num = gets.chomp.to_i
+
+if arr.include?(num)
+  puts "The number #{num} appears in #{arr}."
+else
+  puts "The number #{num} does not appear in #{arr}."
+end
