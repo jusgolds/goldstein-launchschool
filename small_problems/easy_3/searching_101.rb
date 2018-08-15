@@ -10,3 +10,21 @@
 # add this int to an arr
 # add 1 to count
 # after 6, put the array
+
+count = 1
+num = ''
+arr = []
+
+def prompt(message)
+  puts "==> #{message}"
+end
+
+loop do
+  prompt("Enter a number:")
+  num = gets.chomp.to_i
+  arr.push(num)
+  count += 1
+  break if count > 6
+end
+
+p arr
