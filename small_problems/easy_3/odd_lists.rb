@@ -2,3 +2,6 @@
 # => every other element of an Array that is passed in as an argument
 # => the values in the returned list should be those values
 # => that are in the 1st, 3rd, 5th, and so on elements of the argument Array.
+
+# def a method "oddities" with an argument arr
+# for index if odd, add to new arrary
