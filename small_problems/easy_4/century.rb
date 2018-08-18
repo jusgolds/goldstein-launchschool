@@ -10,20 +10,10 @@
 # else
 # century = year / 100
 
-def century(year)
+def century_year(year)
   if year % 100 != 0
     century = year / 100 + 1
   else
     century = year / 100
   end
 end
-
-p century(2000)
-p century(2001)
-p century(1965)
-p century(256)
-p century(5)
-p century(10103)
-p century(1052)
-p century(1127)
-p century(11201)
