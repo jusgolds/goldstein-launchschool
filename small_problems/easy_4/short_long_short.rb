@@ -9,3 +9,16 @@
 # => concat 2-1-2
 # if string 2 is longer than 1
 # => concat 1-2-1
+
+def short_long_short(str, str2)
+  result = ''
+  if str.length > str2.length
+    result.concat(str2, str, str2)
+  else
+    result.concat(str, str2, str)
+  end
+end
+
+p short_long_short('abc', 'defgh') == "abcdefghabc"
+p short_long_short('abcde', 'fgh') == "fghabcdefgh"
+p short_long_short('', 'xyz') == "xyz"
