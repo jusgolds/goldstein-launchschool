@@ -34,14 +34,18 @@ p ages
 advice = "Few things in life are as important as house training your pet dinosaur."
 p advice.match("Dino")
 
-# => 5
-
-# => 6
-
-# => 7
-
 # => 8
+
+advice = "Few things in life are as important as house training your pet dinosaur."
+advice.slice!(0, advice.index('house'))
+puts advice
 
 # => 9
 
+statement = "The Flintstones Rock!"
+puts statement.count("t")
+
 # => 10
+
+title = "Flintstone Family Members"
+puts title.center(40)
