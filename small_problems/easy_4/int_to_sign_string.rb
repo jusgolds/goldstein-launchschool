@@ -14,3 +14,14 @@ def integer_to_string(int)
   num.each { |n| string << n }
   p string
 end
+
+def integer_to_signed_string(number)
+  case number <=> 0
+  when -1 then "-#{integer_to_string(-number)}"
+  when 1 then "+#{integer_to_string(number)}"
+  else         integer_to_string(number)
+  end
+end
+
+integer_to_signed_string(4321)
+integer_to_signed_string(-570)
